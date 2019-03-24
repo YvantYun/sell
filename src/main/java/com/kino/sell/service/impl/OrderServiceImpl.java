@@ -13,6 +13,7 @@ import com.kino.sell.exception.SellException;
 import com.kino.sell.repository.OrderDetailRepository;
 import com.kino.sell.repository.OrderMasterRepository;
 import com.kino.sell.service.OrderService;
+import com.kino.sell.service.PayService;
 import com.kino.sell.service.ProductService;
 import com.kino.sell.utils.KeyUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -46,6 +47,9 @@ public class OrderServiceImpl implements OrderService {
 
     @Autowired
     private OrderMasterRepository orderMasterRepository;
+
+    @Autowired
+    private PayService payService;
 
     @Override
     public OrderDTO create(OrderDTO orderDTO) {
@@ -154,9 +158,9 @@ public class OrderServiceImpl implements OrderService {
         productService.increaseStock(cartDTOList);
 
         //如果已支付, 需要退款
-//        if (orderDTO.getPayStatus().equals(PayStatusEnum.SUCCESS.getCode())) {
-//            payService.refund(orderDTO);
-//        }
+        if (orderDTO.getPayStatus().equals(PayStatusEnum.SUCCESS.getCode())) {
+            payService.refund(orderDTO);
+        }
 
         return orderDTO;
     }

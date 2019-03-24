@@ -1,5 +1,8 @@
 package com.kino.sell.dataobject;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.kino.sell.enums.ProductStatusEnum;
+import com.kino.sell.utils.EnumUtil;
 import lombok.Data;
 
 import javax.persistence.Entity;
@@ -45,5 +48,8 @@ public class ProductInfo {
 
     private Date updateTime;
 
-
+    @JsonIgnore
+    public ProductStatusEnum getProductStatusEnum() {
+        return EnumUtil.getByCode(productStatus, ProductStatusEnum.class);
+    }
 }

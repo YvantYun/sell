@@ -7,7 +7,7 @@ import lombok.Getter;
  * @Date: 2019/3/7 22:46
  */
 @Getter
-public enum OrderStatusEnum {
+public enum OrderStatusEnum implements CodeEnum {
 
     NEW(0,"新订单"),
     FINISHED(1,"完结"),

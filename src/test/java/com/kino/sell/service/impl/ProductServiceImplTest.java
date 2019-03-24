@@ -54,7 +54,7 @@ public class ProductServiceImplTest {
         productInfo.setProductPrice(new BigDecimal(3.2));
         productInfo.setProductDescription("很好喝的虾");
         productInfo.setProductIcon("http://xxxx.jpg");
-        productInfo.setProductStatus(ProductStatusEnum.Down.getCode());
+        productInfo.setProductStatus(ProductStatusEnum.DOWN.getCode());
         productInfo.setCategoryType(2);
         ProductInfo result = productService.save(productInfo);
         Assert.assertNotNull(result);

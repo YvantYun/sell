@@ -1,10 +1,11 @@
 package com.kino.sell.dto;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.kino.sell.dataobject.OrderDetail;
 import com.kino.sell.enums.OrderStatusEnum;
 import com.kino.sell.enums.PayStatusEnum;
+import com.kino.sell.utils.EnumUtil;
 import com.kino.sell.utils.serializer.Date2LongSerializer;
 import lombok.Data;
 
@@ -56,13 +57,13 @@ public class OrderDTO {
 
     List<OrderDetail> orderDetailList = new ArrayList<>();
 
-//    @JsonIgnore
-//    public OrderStatusEnum getOrderStatusEnum() {
-//        return EnumUtil.getByCode(orderStatus, OrderStatusEnum.class);
-//    }
-//
-//    @JsonIgnore
-//    public PayStatusEnum getPayStatusEnum() {
-//        return EnumUtil.getByCode(payStatus, PayStatusEnum.class);
-//    }
+    @JsonIgnore
+    public OrderStatusEnum getOrderStatusEnum() {
+        return EnumUtil.getByCode(orderStatus, OrderStatusEnum.class);
+    }
+
+    @JsonIgnore
+    public PayStatusEnum getPayStatusEnum() {
+        return EnumUtil.getByCode(payStatus, PayStatusEnum.class);
+    }
 }

@@ -15,7 +15,14 @@ wechat:
   #微信公众号id
   mpAppId: wxe9ef2df5e786b62a
   mpAppSecret: c973a39ce5d2638e95f251a893cdfac4
+  openAppId: xxxxxxxxxx
+  openAppSecret: xxxxxxxxxxxx
   mchId: 4321723277
   mchKey: aDW56m05JF952rZ9UOJQ4V3PE88qQ755
   keyPath: /var/weixin_cert/h5.p12
   notifyUrl: http://yunfeng.ngrok.xiaomiqiu.cn/sell/pay/notify
+
+projectUrl:
+  wechatMpAuthorize:
+  wechatOpenAuthorize:
+  sell:
